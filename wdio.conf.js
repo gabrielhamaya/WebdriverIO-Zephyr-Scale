@@ -5,7 +5,7 @@ exports.config = {
   // ====================
   // WebdriverIO supports running e2e tests as well as unit and component tests.
   runner: "local",
-
+  headless: true,
   //
   // ==================
   // Specify Test Files
@@ -53,6 +53,9 @@ exports.config = {
     {
       browserName: "chrome",
       acceptInsecureCerts: true,
+      "goog:chromeOptions": {
+        args: ["--headless", "--disable-gpu"],
+      },
     },
     // {
     //   browserName: "firefox",
@@ -138,9 +141,7 @@ exports.config = {
           return `results-${options.cid}.${options.capabilities.browserName}.xml`;
         },
         classNameFormat: function (options) {
-          const regex = /(?=[.]).*/;
-          const className = options.packageName.replace(regex, "");
-          console.log("NEW NAME:", className);
+          const className = options.packageName.replace(/(?=[.]).*/, "");
           return className;
         },
       },

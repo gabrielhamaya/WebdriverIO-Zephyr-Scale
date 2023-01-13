@@ -1,8 +1,8 @@
-const LoginPage = require("../../pageobjects/login.page");
-const SecurePage = require("../../pageobjects/secure.page");
+const LoginPage = require("../pageobjects/login.page");
+const SecurePage = require("../pageobjects/secure.page");
 
 describe("Test Suite 1", () => {
-  it("Browser Test 1", async () => {
+  it("Failed Test 1", async () => {
     await LoginPage.open();
 
     await LoginPage.login("tomsmith", "SuperSecretPassword!");
@@ -12,7 +12,7 @@ describe("Test Suite 1", () => {
     );
   });
 
-  it("Browser Test 2", async () => {
+  it("Failed Test 2", async () => {
     await LoginPage.open();
 
     await LoginPage.login("tomsmith", "SuperSecretPassword!");
